@@ -7,12 +7,108 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Site</title>
 
+
+    <!-- bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- custom stylesheet -->
     <link rel="stylesheet" href="../css/main.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="manifest" href="..favicons/site.webmanifest">
 </head>
 
 <body>
+    <!-- Nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Weather Vane</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://darksky.net/dev" target="blank_">Powered by Dark Sky <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://developer.mapquest.com/" target="blank_">Mapquest</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input id="areaInput" class="form-control mr-sm-2" type="search" placeholder="Enter Zip/Address/City"
+                    aria-label="Search">
+                <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Get Weather</button>
+            </form>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Weather Card Container -->
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+
+    <!-- Weather Card Template -->
+    <div id="template" style="display: none;">
+        <div class="col-xs-12 col-lg-4">
+            <div class="weatherCard" style="background-image: url(@@imageURL@@)">
+                <!-- Button to remove the card -->
+                <button type="button" id="remove">X</button>
+                <!-- Location -->
+                <h1>@@city@@</h1>
+                <!--  -->
+                <h1>@@currentTemp&#8457 </h1>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Location: @@cityState</li>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Current Conditions: @@conditions@@</li>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">High Temp: @@highTemp&#8457</li>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Low Temp: @@lowTemp&#8457</li>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Chance of Precipitation: @@precipChance%</li>
+                </ul>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="collapse" data-target="#forecast">Hide/Show Weekly Forecast</button>
+                <div id="forecast" class="collapse">
+                    <ul class="list-group list-group-flush">
+                         <li class="list-group-item">Today || High: @@max0@@&#8457 <br/> Low: @@low0@@&#8457 <br/> Precip. Chance: @@precip0@@%</li>
+                         <li class="list-group-item">@@date1@@ || High: @@max1@@&#8457 <br/> Low: @@low1@@&#8457 <br/> Precip. Chance: @@precip1@@%</li>
+                         <li class="list-group-item">@@date2@@ || High: @@max2@@&#8457 <br/> Low: @@low2@@&#8457 <br/> Precip. Chance: @@precip2@@%</li>
+                         <li class="list-group-item">@@date3@@ || High: @@max3@@&#8457 <br/> Low: @@low3@@&#8457 <br/> Precip. Chance: @@precip3@@%</li>
+                         <li class="list-group-item">@@date4@@ || High: @@max4@@&#8457 <br/> Low: @@low4 @@&#8457 <br/> Precip. Chance: @@precip4@@%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <!-- JQuery,Popper.js, Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!-- API Keys File -->
+    <script src="../js/apiKeys.js"></script>
+    <!-- custom javascript -->
     <script src="../js/scripts.js"></script>
 </body>
 
